@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 
 use function Laravel\Prompts\password;
 use App\Models\User;
+use App\Http\Controllers\Profile\AvatarController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -73,6 +74,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::patch('/profile/avatar', [AvatarController::class, 'update'])->name('profile.avatar');
+
+
 });
 
 require __DIR__.'/auth.php';

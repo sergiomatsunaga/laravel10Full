@@ -16,10 +16,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+//Função para habilitar edição de qualquer ATRIBUTO pelo eloquent
+  //  protected $guarded = [];
+  
+//caso contrário os ATRIBUTOS tem de estar listados como fillable
     protected $fillable = [
         'name',
         'email',
         'password',
+        'avatar',
     ];
 
     protected function password(): Attribute
